@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRANG BÁN HÀNG</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0 20px;
+            padding: 0;
+            font-size: 16px;
+        }
+        .nav{
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows:60px;
+        }
+        .menu{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+            
+        }
+        .menu a{
+            text-decoration: none;
+            color: black;
+        }
+        
+        .logo img{
+            margin-top: 5px;
+            width: 100%;
+            height: 100%;    
+            object-fit: contain;
+            display: flex;
+            align-items: center;
+        }
+        .tk{
+           display: flex;
+           align-items: center;
+        }
+        .tk input{
+             padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px
+        }
+        .catelog img{
+            width: 100%;
+        }
+        .gt h1{
+            text-align: center;
+        }
+        .khungsp{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-bottom: 40px;
+            overflow-y: scroll;
+        }
+        .sp{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .sp img{
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+               
+        }
+        .chan{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            
+        }
+        .chan p{
+            color: rgb(244, 150, 222);
+            font-weight: bold;
+        }
+        
+        .footer p{
+            font-style: italic;
+            color: rgb(0, 0, 0);
+
+        }
+        .catelog img{
+            width: 100%; 
+            border-top-left-radius:150px;
+            border-bottom-right-radius: 150px;
+        }
+        .hamburget {
+            display: none;
+            cursor: pointer; 
+        }
+        #check {
+            display: none;
+        }
+        @media (max-width:1200px){
+            .menu{
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                align-items:flex-start  ;
+                z-index: 100;
+                font-size: 16px;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background-color:#FFFFFF;
+
+            }
+            .menu a{
+                margin-left: 80px;
+                margin-bottom: 10px;
+                margin-top: 18px;
+                font-size: 10px;
+            }
+            .timkiem{
+                display: none;
+            }
+            .nav{
+                display: grid;
+                grid-template-areas: "hamburget logo";
+                grid-template-columns:  1fr 1fr;
+                grid-template-rows: auto;
+                text-align: center;
+            }
+            .menu {display: none;}
+            #check:checked ~ .menu {
+                display: flex;
+            }
+            .hamburget{
+                display: grid;
+                grid-area:hamburget;
+                display: block;
+                font-size: 40px;
+                font-weight: bold;
+                cursor: pointer;
+                padding-top: 60px;
+                padding-top: 20px; 
+                 z-index: 101; 
+                 margin-top: 20px;
+            }
+            .logo{
+                display: grid;
+                grid-area:logo;
+                z-index: 10002;
+            }
+            .catelog{
+            display: none;
+
+             }
+        .tk{
+            display: none;
+        }
+        .khungsp{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow-y: scroll;
+        }
+        .gt{
+            font-size: 16px;
+        }
+        p{font-size: 14px;}
+        }
+        @media(max-width:600px){
+        .menu{
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                align-items:flex-start  ;
+                z-index: 100;
+                font-size: 14px;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background-color:#FFFFFF;
+
+            }
+            .menu a{
+                margin-left: 80px;
+                margin-bottom: 10px;
+                margin-top: 15px;
+                font-size: 10px;
+            }
+            .timkiem{
+                display: none;
+            }
+            .nav{
+                display: grid;
+                grid-template-areas: "hamburget logo";
+                grid-template-columns:  1fr 1fr;
+                grid-template-rows: auto;
+                text-align: center;
+            }
+            .menu {display: none;}
+            #check:checked ~ .menu {
+                display: flex;
+            }
+            .hamburget{
+                display: grid;
+                grid-area:hamburget;
+                display: block;
+                font-size: 30px;
+                cursor: pointer;
+                padding-top: 60px;
+                padding-top: 20px; 
+                 z-index: 101; 
+                 margin-top: 20px;
+                 font-weight: bold;
+            }
+            .logo{
+                display: grid;
+                grid-area:logo;
+                z-index: 10002;
+            }
+            .catelog{
+            display: none;
+
+             }
+        .tk{
+            display: none;
+        }
+        .khungsp{
+            display: grid;
+            grid-template-columns: 1fr;
+            overflow-y: scroll;
+        }
+        .gt{
+            font-size: 14px;
+        }
+        p{font-size: 12px;}
+    }      
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <input type="checkbox" id="check">
+             <label for="check" class="hamburget">&#9776;</label> 
+            <div class="menu"> 
+                <a href="#">BRAND</a>
+                <a href="#">MỸ PHẨM</a>
+                <a href="#">SIÊU DEAL T4</a>
+                <a href="#">BỘ SƯU TẬP</a>
+                <a href="#">VỀ CHÚNG TÔI</a>
+            </div>
+            <div class="logo">
+                <img src="https://ingiacucre.net/wp-content/uploads/2019/04/2-1.png" alt=""></div>
+            <div class="tk">
+                <input type="text" placeholder="tìm kiếm" size="30">
+                <button style="font-size: 18px;"><i class="fa fa-search"></i></button>
+            </div>     
+        </div> 
+        <div class="catelog">
+            <img src="https://cdn.vanmiubeauty.com/wp-content/uploads/2023/05/different-makeup-cosmetics-on-pink-background-fem-2022-02-07-11-21-41-utc-scaled.jpg.webp">
+        </div>
+        <div class="gt">
+            <h1>NBK STORIE BEAUTY</h1>
+        </div>
+        <div class="khungsp">
+            <div class="sp">
+                <img src="https://happynuts.vn/wp-content/uploads/2023/03/I.-Tam-quan-trong-cua-my-pham-doi-voi-lan-da.jpg">
+                <p>DIOR</p>
+                <div class="chan">
+                    <p>4.500.000</p>
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+            </div>
+            <div class="sp">
+                <img src="https://oceanlaw.vn/wp-content/uploads/2023/09/thay-doi-noi-dung-sau-khi-cong-bo-my-pham.jpg">
+                <p>YSL</p>
+                <div class="chan">
+                    <p>6.490.000</p>
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+            </div>
+            <div class="sp">
+                <img src="https://suno.vn/blog/wp-content/uploads/2016/12/ban-my-pham-online-lam-giau-khong-kho-1024x683.jpg">
+                <p>CHANEL</p>
+                <div class="chan">
+                    <p>3.678.000</p>
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+            </div>
+            <div class="sp">
+                <img src="https://bizweb.dktcdn.net/100/376/405/files/nhuong-quyen-gia-cong-my-pham-blog-coanmy-5.jpg?v=1596804048945">
+                <p>BVLGARI</p>
+                <div class="chan">
+                    <p>1.780.000</p>
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+            </div>
+         </div>
+         <div class="gt">
+        </div>
+        <div class="khungsp">
+            <div class="sp">
+                <img src="https://file.hstatic.net/200000073977/article/ban-my-pham-part-time_9556a3ff86864135bfe0ef31a1d97f26.png">
+                <p>MAYBELLINE</p>
+                <div class="chan">
+                    <p>3.790.000</p>
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+            </div>
+
+            <div class="sp">
+                <img src="https://file.hstatic.net/200000073977/article/my-pham-gia-re-alex-1_c11f419deb3642c5876b90fa394ee90d.jpg">
+                <p>UNILEVER</p>
+                <div class="chan">
+                    <p>1.000.000</p>
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+            </div>
+
+            <div class="sp">
+                <img src="https://img.vuahanghieu.com/unsafe/1200x0/left/top/smart/filters:quality(90)/https://admin.vuahanghieu.com/upload/news/2021/01/hoa-my-pham-la-gi-phan-tich-uu-nhuoc-diem-cua-hoa-my-pham-12012021112958.jpg">
+                <p>BEIERSDORF</p>
+                <div class="chan">
+                    <p>7.650.000</p>
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+            </div>
+            <div class="sp">
+                <img src="https://jenacare.com/wp-content/uploads/2024/03/word-image-273-680x414.jpeg">
+                <p>UNILEVER</p>
+                <div class="chan">
+                    <p>4.095.000</p>
+                    <i class="fa fa-shopping-cart"></i>
+                </div>
+            </div>
+         </div>
+         <div class="catelog">
+            <img src="https://cdn-www.vinid.net/59052b2f-kinh-doanh-my-pham.jpg">
+        </div>
+        <div class="footer">
+            <p>Họ tên: NGUYỄN BẢO KHÁNH</p>
+            <p>Lớp: TUD D2024 </p>
+            <p>Khoa: TOÁN-CNTT</p>
+        </div>
+    </div>
+</body>
+</html>
